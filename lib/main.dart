@@ -17,7 +17,11 @@ class Home extends StatelessWidget {
       body:  Center(
           child: Column(
             children: [
-              Image.asset("assets/logo.png"),
+              Image.asset(
+                  "assets/logo-slim.png",
+                height: 200,
+                width: 100,
+              ),
               TextButton(
                 child: Text("I'm on a train"),
                 onPressed: () {},
