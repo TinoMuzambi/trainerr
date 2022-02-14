@@ -16,6 +16,7 @@ class Home extends StatelessWidget {
       ),
       body:  Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
                   "assets/logo-slim.png",
