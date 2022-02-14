@@ -15,9 +15,21 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.red[600],
       ),
       body:  Center(
-          child: TextButton(
-            child: Text("I'm on a train"),
-            onPressed: () {},
+          child: Column(
+            children: [
+              TextButton(
+                child: Text("I'm on a train"),
+                onPressed: () {},
+              ),
+              TextButton(
+                child: Text("I'm about to get on a train"),
+                onPressed: () {},
+              ),
+              TextButton(
+                child: Text("I just want the schedule"),
+                onPressed: () {},
+              )
+            ],
           )
       ),
     );
