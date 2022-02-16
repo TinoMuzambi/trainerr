@@ -27,7 +27,9 @@ class CustomButton extends StatelessWidget {
             letterSpacing: 1.2,
           ),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, route);
+        },
       ),
     );
   }
