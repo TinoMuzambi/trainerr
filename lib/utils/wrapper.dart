@@ -6,16 +6,17 @@ class Wrapper extends StatelessWidget {
   late final String appBarText;
   late final Widget body;
 
-  Wrapper({Key? key,  required this.appBarText, required this.body }) : super(key: key);
+  Wrapper({Key? key, required this.appBarText, required this.body})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(appBarText),
-        backgroundColor: primaryColour.getCustomColour()[800],
-      ),
-      body: body
-    );
+        backgroundColor: primaryColour.getCustomColour()[900],
+        appBar: AppBar(
+          title: Text(appBarText),
+          backgroundColor: primaryColour.getCustomColour()[800],
+        ),
+        body: body);
   }
 }
