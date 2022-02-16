@@ -22,9 +22,15 @@ class _HomeState extends State<Home> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            CustomButton(text: "I'm on a train", route: "/tracking"),
-            CustomButton(text: "I'm about to get on a train", route: "/upcoming"),
-            CustomButton(text: "I'm looking for the schedule", route: "/schedule"),
+            CustomButton(text: "I'm on a train", onPressed: () {
+              Navigator.pushNamed(context, "/tracking");
+            }),
+            CustomButton(text: "I'm about to get on a train", onPressed: () {
+              Navigator.pushNamed(context, "/upcoming");
+            }),
+            CustomButton(text: "I'm looking for the schedule", onPressed: () {
+              Navigator.pushNamed(context, "/schedule");
+            }),
           ],
         )
         );

@@ -3,10 +3,10 @@ import 'package:trainerr/utils/custom_colour.dart';
 
 class CustomButton extends StatelessWidget {
   late final String text;
-  late final String route;
+  late final Function() onPressed;
   final CustomColour accentColour = CustomColour(rgbColour: "95fe6a");
 
-  CustomButton({Key? key, required this.text, required this.route})
+  CustomButton({Key? key, required this.text, required this.onPressed})
       : super(key: key);
 
   @override
@@ -27,9 +27,7 @@ class CustomButton extends StatelessWidget {
             letterSpacing: 1.2,
           ),
         ),
-        onPressed: () {
-          Navigator.pushNamed(context, route);
-        },
+        onPressed: onPressed,
       ),
     );
   }
