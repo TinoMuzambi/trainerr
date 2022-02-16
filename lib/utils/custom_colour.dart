@@ -28,8 +28,6 @@ class CustomColour {
     };
   }
 
-
-
   MaterialColor getCustomColour() {
     hexToRGB();
     String hex = "0xff$R$G$B";

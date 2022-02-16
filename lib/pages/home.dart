@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trainerr/custom_button.dart';
 import 'package:trainerr/utils/custom_colour.dart';
 
 class Home extends StatefulWidget {
@@ -34,33 +35,10 @@ class _HomeState extends State<Home> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    TextButton(
-                      child: Text(
-                        "I'm on a train",
-                        style: TextStyle(
-                          color: accentColour.getCustomColour()[900],
-                        ),
-                      ),
-                      onPressed: () {},
-                    ),
-                    TextButton(
-                      child: Text(
-                        "I'm about to get on a train",
-                        style: TextStyle(
-                          color: accentColour.getCustomColour()[900],
-                        ),
-                      ),
-                      onPressed: () {},
-                    ),
-                    TextButton(
-                      child: Text(
-                        "I just want the schedule",
-                        style: TextStyle(
-                          color: accentColour.getCustomColour()[900],
-                        ),
-                      ),
-                      onPressed: () {},
-                    )
+
+                    CustomButton(text: "I'm on a train", route: "/tracking"),
+                    CustomButton(text: "I'm about to get on a train", route: "/upcoming"),
+                    CustomButton(text: "I'm looking for the schedule", route: "/schedule"),
                   ],
                 )
             )
