@@ -1,4 +1,4 @@
-package com.tinotech.trainerr
+package za.co.tinotech.trainerr
 
 import io.flutter.embedding.android.FlutterActivity
 
