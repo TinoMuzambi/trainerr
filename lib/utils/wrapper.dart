@@ -18,14 +18,16 @@ class Wrapper extends StatelessWidget {
           backgroundColor: primaryColour.getCustomColour()[800],
         ),
         body: Padding(
-          padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
+          padding: const EdgeInsets.fromLTRB(40, 40, 40, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Image.asset(
                 "assets/logo-slim.png",
               ),
-              body
+              Expanded(
+                  child: body
+              )
             ],
           ),
         ));
