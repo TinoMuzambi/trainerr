@@ -11,21 +11,27 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: accentColour.getCustomColour()[100],
-      margin: EdgeInsets.fromLTRB(0, 0, 0, 30),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 40),
-        child: TextButton(
-          child: Text(
-            text,
-            style: TextStyle(
-              color: accentColour.getCustomColour()[900],
-              letterSpacing: 1.2,
-
+      margin: EdgeInsets.symmetric(vertical: 10),
+      child: TextButton(
+        style: TextButton.styleFrom(
+            backgroundColor: accentColour.getCustomColour()[100],
+            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 50),
+            shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(200))
             ),
+
+            )
+        ,
+        child: Text(
+          text,
+          style: TextStyle(
+            color: accentColour.getCustomColour()[900],
+            letterSpacing: 1.2,
+
           ),
-          onPressed: () {},
+
         ),
+        onPressed: () {},
       ),
     );
   }

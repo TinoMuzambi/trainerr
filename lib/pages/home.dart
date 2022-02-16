@@ -33,7 +33,7 @@ class _HomeState extends State<Home> {
             Expanded(
                 flex: 1,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 40),
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
