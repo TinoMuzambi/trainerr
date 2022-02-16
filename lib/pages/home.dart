@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trainerr/custom_button.dart';
+import 'package:trainerr/utils/custom_button.dart';
 import 'package:trainerr/utils/custom_colour.dart';
 import 'package:trainerr/utils/wrapper.dart';
 
