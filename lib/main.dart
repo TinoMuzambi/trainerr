@@ -9,10 +9,10 @@ void main() {
   runApp(MaterialApp(
     initialRoute: "/",
     routes: {
-      "/": (context) => Home(),
-      "/tracking": (context) => Tracking(),
-      "/upcoming": (context) => Upcoming(),
-      "/schedule": (context) => Schedule()
+      "/": (context) => const Home(),
+      "/tracking": (context) => const Tracking(),
+      "/upcoming": (context) => const Upcoming(),
+      "/schedule": (context) => const Schedule()
     },
   ));
 }
