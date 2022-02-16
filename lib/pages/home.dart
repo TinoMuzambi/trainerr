@@ -32,14 +32,17 @@ class _HomeState extends State<Home> {
             ),
             Expanded(
                 flex: 1,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-
-                    CustomButton(text: "I'm on a train", route: "/tracking"),
-                    CustomButton(text: "I'm about to get on a train", route: "/upcoming"),
-                    CustomButton(text: "I'm looking for the schedule", route: "/schedule"),
-                  ],
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 40),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      CustomButton(text: "I'm on a train", route: "/tracking"),
+                      CustomButton(text: "I'm about to get on a train", route: "/upcoming"),
+                      CustomButton(text: "I'm looking for the schedule", route: "/schedule"),
+                    ],
+                  ),
                 )
             )
           ],
