@@ -30,6 +30,7 @@ class Wrapper extends StatelessWidget {
               )
             ],
           ),
-        ));
+        )
+    );
   }
 }
