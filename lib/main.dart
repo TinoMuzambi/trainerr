@@ -16,16 +16,19 @@ class Home extends StatelessWidget {
     CustomColour accentColour = CustomColour(rgbColour: "95fe6a");
 
     return Scaffold(
-      backgroundColor: primaryColour.getCustomColour(),
+      backgroundColor: primaryColour.getCustomColour()[900],
       appBar: AppBar(
         title: const Text("Trainerr"),
-        backgroundColor: primaryColour.getCustomColour()[400],
+        backgroundColor: primaryColour.getCustomColour()[800],
       ),
       body:  Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Image.asset(
-            "assets/logo-slim.png",
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
+            child: Image.asset(
+              "assets/logo-slim.png",
+            ),
           ),
           Expanded(
               flex: 1,
