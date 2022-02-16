@@ -18,16 +18,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Wrapper(
         appBarText: "Trainerr",
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
-              child: Image.asset(
-                "assets/logo-slim.png",
-              ),
-            ),
-            Expanded(
+        body: Expanded(
                 flex: 1,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -42,8 +33,6 @@ class _HomeState extends State<Home> {
                   ),
                 )
             )
-          ],
-        ),
-    );
+        );
   }
 }

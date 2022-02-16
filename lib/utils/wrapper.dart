@@ -17,6 +17,17 @@ class Wrapper extends StatelessWidget {
           title: Text(appBarText),
           backgroundColor: primaryColour.getCustomColour()[800],
         ),
-        body: body);
+        body: Padding(
+          padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Image.asset(
+                "assets/logo-slim.png",
+              ),
+              body
+            ],
+          ),
+        ));
   }
 }
