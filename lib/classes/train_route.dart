@@ -1,3 +1,8 @@
+import 'dart:convert';
+
+List<TrainRoute> postFromJson(String str) =>
+    List<TrainRoute>.from(json.decode(str).map((x) => TrainRoute.fromMap(x)));
+
 class TrainRoute {
   final String line;
   final String departingStation;
@@ -13,7 +18,7 @@ class TrainRoute {
     required this.trainNumber,
 });
 
-  factory TrainRoute.fromJson(Map<String, dynamic> json) {
+  factory TrainRoute.fromMap(Map<String, dynamic> json) {
     return TrainRoute(
       line: json["line"],
       departingStation: json["departingStation"],
