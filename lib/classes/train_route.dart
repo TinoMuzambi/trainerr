@@ -4,6 +4,7 @@ List<TrainRoute> postFromJson(String str) =>
     List<TrainRoute>.from(json.decode(str).map((x) => TrainRoute.fromMap(x)));
 
 class TrainRoute {
+  final String id;
   final String line;
   final String departingStation;
   final String arrivingStation;
@@ -11,6 +12,7 @@ class TrainRoute {
   final int trainNumber;
 
   const TrainRoute({
+    required this.id,
     required this.line,
     required this.departingStation,
     required this.arrivingStation,
@@ -20,6 +22,7 @@ class TrainRoute {
 
   factory TrainRoute.fromMap(Map<String, dynamic> json) {
     return TrainRoute(
+      id: json["id"],
       line: json["line"],
       departingStation: json["departingStation"],
       arrivingStation: json["arrivingStation"],
