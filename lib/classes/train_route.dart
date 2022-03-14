@@ -1,11 +1,11 @@
-class Route {
+class TrainRoute {
   final String line;
   final String departingStation;
   final String arrivingStation;
   final List<dynamic> times;
   final int trainNumber;
 
-  const Route({
+  const TrainRoute({
     required this.line,
     required this.departingStation,
     required this.arrivingStation,
@@ -13,8 +13,8 @@ class Route {
     required this.trainNumber,
 });
 
-  factory Route.fromJson(Map<String, dynamic> json) {
-    return Route(
+  factory TrainRoute.fromJson(Map<String, dynamic> json) {
+    return TrainRoute(
       line: json["line"],
       departingStation: json["departingStation"],
       arrivingStation: json["arrivingStation"],
