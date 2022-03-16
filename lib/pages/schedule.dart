@@ -53,7 +53,7 @@ class _ScheduleState extends State<Schedule> {
                       ),
                     ),
                     ListView.builder(
-                        scrollDirection: Axis.vertical,
+                        physics: NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: snapshot.data!.routes[index].times.length,
                         itemBuilder: (context, index2) {
@@ -72,7 +72,6 @@ class _ScheduleState extends State<Schedule> {
               },
             );
           } else if (snapshot.hasError) {
-            print(snapshot.error);
             return Text(
               '${snapshot.error}',
               style: TextStyle(
