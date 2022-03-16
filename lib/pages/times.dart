@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:trainerr/classes/train_route.dart';
 import 'package:trainerr/utils/custom_colour.dart';
 import 'package:trainerr/utils/wrapper.dart';
 
@@ -20,14 +18,13 @@ class _RouteTimesState extends State<RouteTimes> {
     data = data.isNotEmpty
         ? data
         : ModalRoute.of(context)!.settings.arguments as Map;
-    print(data);
 
     return Wrapper(
         appBarText: "Route Times",
         body: Padding(
           padding: const EdgeInsets.only(top: 16.0),
           child: SingleChildScrollView(
-            physics: ScrollPhysics(),
+            physics: const ScrollPhysics(),
             child: Column(
               children: [
                 ListTile(
