@@ -1,17 +1,18 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:trainerr/classes/trainerr_api_response.dart';
 import 'package:trainerr/utils/custom_button.dart';
 import 'package:trainerr/utils/custom_colour.dart';
 import 'package:trainerr/utils/wrapper.dart';
-import 'package:trainerr/classes/train_route.dart';
 import 'package:http/http.dart' as http;
 
-Future<TrainRoute> getData() async{
-  final response = await http.get(Uri.parse('https://trainerr-api.vercel.app/api/routes'));
+Future<TrainerrApiResponse> getData() async {
+  final response = await http.get(Uri.parse('https://trainerr-api.vercel.app/api/routes?perPage=1'));
 
   if (response.statusCode == 200) {
-    return TrainRoute.fromJson(jsonDecode(response.body));
+    final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
+    return parsed;
   } else {
     throw Exception("Failed to load data");
   }
@@ -27,7 +28,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   CustomColour primaryColour = CustomColour(rgbColour: "0d121d");
   CustomColour accentColour = CustomColour(rgbColour: "95fe6a");
-  late Future<TrainRoute> futureResponse;
+  late Future<TrainerrApiResponse> futureResponse;
 
   void fetchPage() async {
     print("here");
@@ -62,14 +63,29 @@ class _HomeState extends State<Home> {
             CustomButton(text: "I'm looking for the schedule", onPressed: () {
               Navigator.pushNamed(context, "/schedule");
             }),
-            FutureBuilder(
+            FutureBuilder<TrainerrApiResponse>(
                 future: futureResponse,
                 builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  return Text(snapshot.data!.toString());
+                  return Text(
+                    snapshot.data!.page.toString(),
+                    style: TextStyle(
+                        color: accentColour.getCustomColour()[700]
+                    ),
+                  );
                 } else if (snapshot.hasError) {
-                  return Text('${snapshot.error}');
+                  print(snapshot.error);
+                  return Text(
+                    '${snapshot.error}',
+                    style: TextStyle(
+                      color: accentColour.getCustomColour()[900]
+                    ),
+                  );
                 }
+
+                return const Center(
+                  child: CircularProgressIndicator()
+                );
             })
           ],
         )
