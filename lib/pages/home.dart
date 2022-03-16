@@ -31,12 +31,7 @@ class _HomeState extends State<Home> {
   late Future<TrainerrApiResponse> futureResponse;
 
   void fetchPage() async {
-    print("here");
-
     futureResponse = getData();
-
-    print("done");
-    print(futureResponse);
   }
 
   @override
@@ -61,32 +56,8 @@ class _HomeState extends State<Home> {
               Navigator.pushNamed(context, "/upcoming");
             }),
             CustomButton(text: "I'm looking for the schedule", onPressed: () {
-              Navigator.pushNamed(context, "/schedule");
+              Navigator.pushNamed(context, "/schedule", arguments: futureResponse);
             }),
-            FutureBuilder<TrainerrApiResponse>(
-                future: futureResponse,
-                builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return Text(
-                    snapshot.data!.pages.toString(),
-                    style: TextStyle(
-                        color: accentColour.getCustomColour()[700]
-                    ),
-                  );
-                } else if (snapshot.hasError) {
-                  print(snapshot.error);
-                  return Text(
-                    '${snapshot.error}',
-                    style: TextStyle(
-                      color: accentColour.getCustomColour()[900]
-                    ),
-                  );
-                }
-
-                return const Center(
-                  child: CircularProgressIndicator()
-                );
-            })
           ],
         )
         );
