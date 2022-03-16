@@ -1,4 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:trainerr/classes/train_route.dart';
+import 'package:trainerr/utils/custom_colour.dart';
+import 'package:trainerr/utils/wrapper.dart';
 
 class RouteTimes extends StatefulWidget {
   const RouteTimes({Key? key}) : super(key: key);
@@ -8,22 +12,47 @@ class RouteTimes extends StatefulWidget {
 }
 
 class _RouteTimesState extends State<RouteTimes> {
+  CustomColour accentColour = CustomColour(rgbColour: "95fe6a");
+  Map data = {};
+
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        physics: const NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemCount: snapshot.data!.routes[index].times.length,
-        itemBuilder: (context, index2) {
-          return ListTile(
-              title: Text(
-                '${snapshot.data!.routes[index].times[index2].departingTime}\n${snapshot.data!.routes[index].times[index2].arrivingTime}',
-                style: TextStyle(
-                  color: accentColour.getCustomColour()[900],
-                ),
-              )
-          );
-        }
-    );
+    data = data.isNotEmpty
+        ? data
+        : ModalRoute.of(context)!.settings.arguments as Map;
+    print(data);
+
+    return Wrapper(
+        appBarText: "Route Times",
+        body: Padding(
+          padding: const EdgeInsets.only(top: 16.0),
+          child: SingleChildScrollView(
+            physics: ScrollPhysics(),
+            child: Column(
+              children: [
+                ListTile(
+                    title: Text(
+                  '${data["route"].departingStation} - ${data["route"].arrivingStation}',
+                  style: TextStyle(
+                    color: accentColour.getCustomColour()[900],
+                  ),
+                )),
+                ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: data["route"].times.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                          title: Text(
+                        '${data["route"].times[index].departingTime}\n${data["route"].times[index].arrivingTime}',
+                        style: TextStyle(
+                          color: accentColour.getCustomColour()[900],
+                        ),
+                      ));
+                    }),
+              ],
+            ),
+          ),
+        ));
   }
 }
