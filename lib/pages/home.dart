@@ -8,7 +8,7 @@ import 'package:trainerr/utils/wrapper.dart';
 import 'package:http/http.dart' as http;
 
 Future<TrainerrApiResponse> getData() async {
-  final response = await http.get(Uri.parse('https://trainerr-api.vercel.app/api/routes?perPage=1'));
+  final response = await http.get(Uri.parse('https://trainerr-api.vercel.app/api/routes?perPage=5'));
 
   if (response.statusCode == 200) {
     final parsed = TrainerrApiResponse.fromJson(json.decode(response.body));
