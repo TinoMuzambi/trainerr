@@ -21,40 +21,47 @@ class _ScheduleState extends State<Schedule> {
         future: futureResponse,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return ListView.builder(
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              itemCount: snapshot.data?.routes.length,
-              itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    ListTile(
-                      title: Text(
-                        snapshot.data!.routes[index].line,
-                        style: TextStyle(
-                            color: accentColour.getCustomColour()[900]
-                        ),
-                      ),
-                    ),
-                    ListTile(
-                      title: Text(
-                        'from: ${snapshot.data!.routes[index].departingStation}',
-                        style: TextStyle(
-                            color: accentColour.getCustomColour()[900]
-                        ),
-                      ),
-                    ),
-                    ListTile(
-                      title: Text(
-                        'to: ${snapshot.data!.routes[index].arrivingStation}',
-                        style: TextStyle(
-                            color: accentColour.getCustomColour()[900]
-                        ),
-                      ),
-                    ),
-                  ],
-                );
+            return ElevatedButton(
+              onPressed: () { 
+                Navigator.pushNamed(context, "/times", arguments: {
+                  "routes": snapshot.data!.routes,
+                });
               },
+              child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: snapshot.data?.routes.length,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      ListTile(
+                        title: Text(
+                          snapshot.data!.routes[index].line,
+                          style: TextStyle(
+                              color: accentColour.getCustomColour()[900]
+                          ),
+                        ),
+                      ),
+                      ListTile(
+                        title: Text(
+                          'from: ${snapshot.data!.routes[index].departingStation}',
+                          style: TextStyle(
+                              color: accentColour.getCustomColour()[900]
+                          ),
+                        ),
+                      ),
+                      ListTile(
+                        title: Text(
+                          'to: ${snapshot.data!.routes[index].arrivingStation}',
+                          style: TextStyle(
+                              color: accentColour.getCustomColour()[900]
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              ),
             );
           } else if (snapshot.hasError) {
             return Text(
