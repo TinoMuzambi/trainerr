@@ -11,7 +11,7 @@ Future<TrainerrApiResponse> getData() async {
   final response = await http.get(Uri.parse('https://trainerr-api.vercel.app/api/routes?perPage=1'));
 
   if (response.statusCode == 200) {
-    final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
+    final parsed = TrainerrApiResponse.fromJson(json.decode(response.body));
     return parsed;
   } else {
     throw Exception("Failed to load data");
@@ -68,7 +68,7 @@ class _HomeState extends State<Home> {
                 builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   return Text(
-                    snapshot.data!.page.toString(),
+                    snapshot.data!.pages.toString(),
                     style: TextStyle(
                         color: accentColour.getCustomColour()[700]
                     ),
