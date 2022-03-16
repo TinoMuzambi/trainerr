@@ -12,11 +12,11 @@ class TrainerrApiResponse {
       required this.routes,
       required this.pages});
 
-  factory TrainerrApiResponse.fromMap(Map<String, dynamic> json) {
+  factory TrainerrApiResponse.fromJson(Map<String, dynamic> json) {
     return TrainerrApiResponse(
         success: json["success"],
         page: json["page"],
-        routes: json["routes"],
+        routes: List<TrainRoute>.from(json["routes"].map((x) => TrainRoute.fromJson(x))),
         pages: json["pages"]);
   }
 }

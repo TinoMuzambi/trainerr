@@ -1,14 +1,16 @@
 import 'dart:convert';
 
+import 'package:trainerr/classes/train_time.dart';
+
 List<TrainRoute> postFromJson(String str) =>
-    List<TrainRoute>.from(json.decode(str).map((x) => TrainRoute.fromMap(x)));
+    List<TrainRoute>.from(json.decode(str).map((x) => TrainRoute.fromJson(x)));
 
 class TrainRoute {
   final String id;
   final String line;
   final String departingStation;
   final String arrivingStation;
-  final List<dynamic> times;
+  final List<TrainTime> times;
   final int trainNumber;
 
   const TrainRoute({
@@ -20,13 +22,13 @@ class TrainRoute {
     required this.trainNumber,
 });
 
-  factory TrainRoute.fromMap(Map<String, dynamic> json) {
+  factory TrainRoute.fromJson(Map<String, dynamic> json) {
     return TrainRoute(
       id: json["id"],
       line: json["line"],
       departingStation: json["departingStation"],
       arrivingStation: json["arrivingStation"],
-      times: json["times"],
+      times: List<TrainTime>.from(json["times"].map((x) => TrainTime.fromJson(x))) ,
       trainNumber: json["trainNumber"],
     );
   }
