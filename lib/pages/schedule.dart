@@ -38,7 +38,7 @@ class _ScheduleState extends State<Schedule> {
                     ),
                     ListTile(
                       title: Text(
-                        snapshot.data!.routes[index].departingStation,
+                        'from: ${snapshot.data!.routes[index].departingStation}',
                         style: TextStyle(
                             color: accentColour.getCustomColour()[900]
                         ),
@@ -46,12 +46,27 @@ class _ScheduleState extends State<Schedule> {
                     ),
                     ListTile(
                       title: Text(
-                        snapshot.data!.routes[index].arrivingStation,
+                        'to: ${snapshot.data!.routes[index].arrivingStation}',
                         style: TextStyle(
                             color: accentColour.getCustomColour()[900]
                         ),
                       ),
                     ),
+                    ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        itemCount: snapshot.data!.routes[index].times.length,
+                        itemBuilder: (context, index2) {
+                          return ListTile(
+                            title: Text(
+                              '${snapshot.data!.routes[index].times[index2].departingTime}\n${snapshot.data!.routes[index].times[index2].arrivingTime}',
+                              style: TextStyle(
+                                color: accentColour.getCustomColour()[900],
+                              ),
+                            )
+                          );
+                        }
+                    )
                   ],
                 );
               },
