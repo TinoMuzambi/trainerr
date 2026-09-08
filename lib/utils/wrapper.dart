@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:trainerr/utils/custom_colour.dart';
 
 class Wrapper extends StatelessWidget {
-  final CustomColour primaryColour = CustomColour(rgbColour: "0d121d");
-  late final String appBarText;
-  late final Widget body;
+  final CustomColour primaryColour = const CustomColour(rgbColour: "0d121d");
+  final String appBarText;
+  final Widget body;
 
   Wrapper({Key? key, required this.appBarText, required this.body})
       : super(key: key);

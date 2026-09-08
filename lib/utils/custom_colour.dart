@@ -1,37 +1,28 @@
 import 'package:flutter/material.dart';
 
 class CustomColour {
-  late String rgbColour;
-  late int R;
-  late int G;
-  late int B;
-  late Map<int, Color> shades;
+  final String rgbColour;
 
-  CustomColour({ required this.rgbColour });
-
-  void hexToRGB() {
-    R = int.parse(rgbColour.substring(0, 2), radix: 16);
-    G = int.parse(rgbColour.substring(2, 4), radix: 16);
-    B = int.parse(rgbColour.substring(4, 6), radix: 16);
-
-    shades = {
-      50:  Color.fromRGBO(R, G, B, .1),
-      100:  Color.fromRGBO(R, G, B, .2),
-      200:  Color.fromRGBO(R, G, B, .3),
-      300:  Color.fromRGBO(R, G, B, .4),
-      400:  Color.fromRGBO(R, G, B, .5),
-      500:  Color.fromRGBO(R, G, B, .6),
-      600:  Color.fromRGBO(R, G, B, .7),
-      700:  Color.fromRGBO(R, G, B, .8),
-      800:  Color.fromRGBO(R, G, B, .9),
-      900:  Color.fromRGBO(R, G, B, 1),
-    };
-  }
+  const CustomColour({required this.rgbColour});
 
   MaterialColor getCustomColour() {
-    hexToRGB();
-    String hex = "0xff$R$G$B";
-    int hexNum = int.parse(hex);
-    return MaterialColor(hexNum, shades);
+    final red = int.parse(rgbColour.substring(0, 2), radix: 16);
+    final green = int.parse(rgbColour.substring(2, 4), radix: 16);
+    final blue = int.parse(rgbColour.substring(4, 6), radix: 16);
+
+    final shades = <int, Color>{
+      50: Color.fromRGBO(red, green, blue, .1),
+      100: Color.fromRGBO(red, green, blue, .2),
+      200: Color.fromRGBO(red, green, blue, .3),
+      300: Color.fromRGBO(red, green, blue, .4),
+      400: Color.fromRGBO(red, green, blue, .5),
+      500: Color.fromRGBO(red, green, blue, .6),
+      600: Color.fromRGBO(red, green, blue, .7),
+      700: Color.fromRGBO(red, green, blue, .8),
+      800: Color.fromRGBO(red, green, blue, .9),
+      900: Color.fromRGBO(red, green, blue, 1),
+    };
+
+    return MaterialColor(int.parse('0xff$rgbColour'), shades);
   }
 }
