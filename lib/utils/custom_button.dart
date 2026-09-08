@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:trainerr/utils/custom_colour.dart';
 
 class CustomButton extends StatelessWidget {
-  late final String text;
-  late final Function() onPressed;
-  final CustomColour accentColour = CustomColour(rgbColour: "95fe6a");
+  final String text;
+  final VoidCallback onPressed;
+  final CustomColour accentColour = const CustomColour(rgbColour: "95fe6a");
 
   CustomButton({Key? key, required this.text, required this.onPressed})
       : super(key: key);
